@@ -14,22 +14,17 @@ public class Main {
         printFileContent(fileName);
     }
 
-    //Here you have 2 methods
-    // getFileContent aims to get the content of a file
-    // printFileContent that prints it s content otherwise print 'file not found :/'
-    // todo : implement the methods and force exception handling in the printFile method
 
     private static String getFileContent(String fileName) {
-        //use the line below if you're a linux user
-        //File file = new File("src/tp2/magicFile/" + fileName);
-
-        //use the line below if you're a windows user
-        File file = new File("src\\tp2\\magicFile\\" + fileName);
-
-        //the lines below help you to get the content
-//        Scanner reader = new Scanner(file);
-//        String content = reader.nextLine();
-        return null;
+        try{
+            File file = new File("src\\tp2\\magicFile\\" + fileName);
+            Scanner reader = new Scanner(file);
+            String content = reader.nextLine();
+            return content;
+        }catch(FileNotFoundException e){
+            System.out.println("file not found :/");
+            return null;
+        }
     }
 
     private static void printFileContent(String fileName) {
